@@ -3,7 +3,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # devise :omniauthable, omniauth_providers: [:twitter]
 
   # You should also create an action method in this controller like this:
-  def twitter
+  def gmail 
+    if @user.persisted?
+      sign_in_and_redirect @user
+            
+    end
   end
 
   # More info at:

@@ -28,6 +28,7 @@ gem 'spring',        group: :development
 
 gem 'devise' 
 gem 'figaro'
+gem "omniauth-google-oauth2"
 gem 'omniauth-twitter'
 gem 'mapbox-rails'
 gem 'twitter-bootstrap-rails'
