@@ -27,6 +27,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'devise' 
+gem 'figaro'
 gem 'omniauth-twitter'
 gem 'mapbox-rails'
 gem 'twitter-bootstrap-rails'
