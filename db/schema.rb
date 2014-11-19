@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141118222848) do
+ActiveRecord::Schema.define(version: 20141119043804) do
+
+  create_table "flights", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "flights", ["user_id"], name: "index_flights_on_user_id"
 
   create_table "users", force: true do |t|
     t.datetime "created_at"
