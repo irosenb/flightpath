@@ -30,6 +30,7 @@ gem 'spring',        group: :development
 gem 'devise' 
 gem 'figaro'
 gem "omniauth-google-oauth2"
+gem "omniauth-twitter"
 
 # Interface 
 gem 'mapbox-rails'
