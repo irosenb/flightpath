@@ -15,7 +15,8 @@ Devise.setup do |config|
   # config.omniauth :twitter, ENV['TWITTER_KEY'], ENV['TWITTER_SECRET']
   config.omniauth :google_oauth2, ENV['GOOGLE_KEY'], ENV['GOOGLE_SECRET'],
   {
-    scope: "email, profile, https://mail.google.com/"
+    scope: "email, profile, https://mail.google.com/",
+    name: "google"
   }
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'

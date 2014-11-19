@@ -3,13 +3,15 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # devise :omniauthable, omniauth_providers: [:twitter]
 
   # You should also create an action method in this controller like this:
-  def google_oauth2
-    raise request.env["omniauth.auth"]
+  def google
     @user = User.from_omniauth(request.env["omniauth.auth"])
 
     if @user.persisted?
       sign_in_and_redirect @user
-      set_flash_message(:notice, :success, kind: "google_oauth2")
+      set_flash_message(:notice, :success, kind: "google")
+    else 
+      session['devise.google_data'] = request.env["omniauth.auth"]
+      redirect_to new_user_registration_path
     end
   end
 
@@ -22,9 +24,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # end
 
   # GET|POST /users/auth/twitter/callback
-  # def failure
-  #   super
-  # end
+  def failure
+    super
+  end
 
   # protected
 

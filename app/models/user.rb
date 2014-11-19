@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,   
          :recoverable, :rememberable, :trackable, :validatable  
 
-  devise :omniauthable, :omniauth_providers => [:google_oauth2]
+  devise :omniauthable, :omniauth_providers => [:google]
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
       user.password = Devise.friendly_token[0,20]
       user.name = auth.info.name 
       user.image = auth.info.image
+      user.token = auth.credentials.token 
     end
   end
 end
